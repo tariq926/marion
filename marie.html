@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎉</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #f6d365); /* Colorful gradient background */
+            color: #ffffff; /* White text */
+            font-family: 'Pacifico', cursive; /* Fun, festive font */
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align content to the top */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .message-container {
+            max-width: 800px;
+            width: 100%; /* Ensure it fits on small screens */
+            text-align: center; /* Center-align the content */
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            border-radius: 20px; /* Rounded corners */
+            backdrop-filter: blur(10px); /* Blur effect */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        }
+
+        .message {
+            font-size: 1.5rem;
+            display: inline-block; /* Ensure cursor is inline */
+            position: relative;
+            white-space: pre-wrap; /* Preserve line breaks and spaces */
+            color: #333; /* Darker text for better readability */
+        }
+
+        .message::after {
+            content: '';
+            position: absolute;
+            right: -2px; /* Position cursor at the end of the text */
+            width: 2px; /* Cursor width */
+            height: 1.2em; /* Cursor height */
+            background-color: #ff6f61; /* Cursor color */
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* Birthday Text */
+        .birthday-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6f61; /* Fun color */
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 20px; /* Space below the text */
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Balloon Animation */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background: #ff6f61;
+            border-radius: 50%;
+            animation: float-balloon 6s ease-in infinite;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 50px;
+            background: #333;
+        }
+
+        @keyframes float-balloon {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100vh) rotate(360deg); }
+            100% { transform: translateY(0) rotate(720deg); }
+        }
+
+        /* Rose Animation */
+        .rose {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background: url('https://www.transparentpng.com/thumb/rose/flower-rose-png-3.png') no-repeat center/contain; /* Rose image */
+            animation: float-rose 8s ease-in infinite;
+        }
+
+        @keyframes float-rose {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-100vh) rotate(360deg); }
+            100% { transform: translateY(0) rotate(720deg); }
+        }
+
+        /* Confetti Effect */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6f61;
+            border-radius: 50%;
+            animation: confetti-fall 5s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .birthday-text {
+                font-size: 2rem; /* Smaller text for mobile */
+            }
+
+            .message {
+                font-size: 1.2rem; /* Smaller text for mobile */
+            }
+        }
+    </style>
+    <!-- Google Fonts for Festive Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Balloons -->
+    <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 70%; animation-delay: 6s;"></div>
+    <div class="balloon" style="left: 90%; animation-delay: 8s;"></div>
+
+    <!-- Roses -->
+    <div class="rose" style="left: 5%; animation-delay: 1s;"></div>
+    <div class="rose" style="left: 20%; animation-delay: 3s;"></div>
+    <div class="rose" style="left: 40%; animation-delay: 5s;"></div>
+    <div class="rose" style="left: 60%; animation-delay: 7s;"></div>
+    <div class="rose" style="left: 80%; animation-delay: 9s;"></div>
+
+    <!-- Confetti -->
+    <div class="confetti" style="left: 5%; animation-delay: 1s;"></div>
+    <div class="confetti" style="left: 15%; animation-delay: 3s;"></div>
+    <div class="confetti" style="left: 25%; animation-delay: 5s;"></div>
+    <div class="confetti" style="left: 35%; animation-delay: 7s;"></div>
+    <div class="confetti" style="left: 45%; animation-delay: 9s;"></div>
+
+    <div class="message-container">
+        <div class="birthday-text">Happy Birthday! 🎉🎂🎈</div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        // Lyrics of "Spacebound" by Eminem
+        const lyrics = `HAPPY BIRTHDAY!
+Happy Birthday to the most amazing friend anyone could ever ask for! 🎉🎂🎈
+
+From the days of our primary school adventures to the countless memories we've created together, you have been a constant source of joy, laughter, and support in my life. Your kindness, intelligence, and beauty, both inside and out, never cease to amaze me.
+
+We've shared so many incredible moments, from primary school to highschool and , late-night conversations. Each memory with you is a treasure that I hold close to my heart. You have been my rock, my confidant, and my partner in crime through it all.
+
+I am so grateful to have you in my life, and I want you to know that I love you dearly. You are not just a friend; you are my family, and I am keeping you forever. Your presence makes the world a brighter and better place, and I am so proud of the person you have become.
+
+As we celebrate your special day, I want to remind you that you will forever be my best friend. No matter where life takes us, our bond will remain unbreakable. Here's to many more years of laughter, adventures, and unforgettable memories together.
+
+Happy Birthday, Marion as you turn a year old... May your day be filled with love, joy, and all the wonderful things you deserve.
+
+`;
+
+        const messageElement = document.getElementById('message');
+        let index = 0;
+
+        function typeWriter() {
+            if (index < lyrics.length) {
+                messageElement.textContent += lyrics.charAt(index);
+                index++;
+
+                // Auto-scroll to the bottom of the page
+                window.scrollTo(0, document.body.scrollHeight);
+
+                setTimeout(typeWriter, 50); // Adjust speed here (50ms per character)
+            } else {
+                // Remove the cursor when the text finishes
+                messageElement.style.setProperty('--cursor-visibility', 'hidden');
+            }
+        }
+
+        // Start the typewriter effect after a short delay
+        setTimeout(() => {
+            typeWriter();
+        }, 1000); // 1-second delay before starting
+    </script>
+</body>
+</html>
