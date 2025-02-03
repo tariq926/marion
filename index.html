@@ -75,8 +75,7 @@
         .memories-button {
             position: fixed; /* Fixed position at the bottom */
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%); /* Center the button */
+            right: 20px; /* Positioned at the bottom right */
             padding: 10px 20px;
             font-size: 1.2rem;
             font-family: 'Pacifico', cursive;
@@ -119,7 +118,7 @@
     </div>
 
     <!-- Button to Memories Page -->
-    <a href="memories.html" class="memories-button">View Our Memories 🌹</a>
+    <button class="memories-button" onclick="redirectToMemories()">View Our Memories 🌹</button>
 
     <script>
         // Personalized Birthday Message
@@ -158,6 +157,11 @@ Happy Birthday, Marion, as you turn a year older... May your day be filled with 
         setTimeout(() => {
             typeWriter();
         }, 1000); // 1-second delay before starting
+
+        // Function to redirect to the memories page
+        function redirectToMemories() {
+            window.location.href = "memories.html";
+        }
     </script>
 </body>
 </html>
