@@ -128,12 +128,6 @@
 
     <script>
 
-        // Play background music
-        const backgroundMusic = document.getElementById('background-music');
-        backgroundMusic.play().catch(error => {
-            console.log("Autoplay was blocked. Please interact with the page to play music.");
-        });
-
         // Personalized Birthday Message
         const message = `HAPPY BIRTHDAY!
 Happy Birthday to the most amazing friend anyone could ever ask for! 🎉🎂🎈
@@ -176,6 +170,12 @@ Happy Birthday, Marion, as you turn a year older... May your day be filled with 
         function redirectToMemories() {
             window.location.href = "memories.html";
         }
+        // Play background music
+        const backgroundMusic = document.getElementById('background-music');
+        backgroundMusic.play().catch(error => {
+            console.log("Autoplay was blocked. Please interact with the page to play music.");
+        });
+
     </script>
 </body>
 </html>
