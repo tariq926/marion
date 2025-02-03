@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories 🌹</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #f6d365); /* Colorful gradient background */
+            color: #ffffff; /* White text */
+            font-family: 'Pacifico', cursive; /* Fun, festive font */
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align content to the top */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .memories-container {
+            max-width: 800px;
+            width: 100%; /* Ensure it fits on small screens */
+            text-align: center; /* Center-align the content */
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            border-radius: 20px; /* Rounded corners */
+            backdrop-filter: blur(10px); /* Blur effect */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        }
+
+        .memories-container h2 {
+            font-size: 2.5rem;
+            color: #ff6f61; /* Fun color */
+            margin-bottom: 20px;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .memory-item img, .memory-item video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .memories-container h2 {
+                font-size: 2rem; /* Smaller text for mobile */
+            }
+        }
+    </style>
+    <!-- Google Fonts for Festive Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="memories-container">
+        <h2>Our Memories 🌹</h2>
+        <div class="memory-grid">
+            <div class="memory-item">
+                <img src="https://via.placeholder.com/200" alt="Memory 1">
+            </div>
+            <div class="memory-item">
+                <img src="https://via.placeholder.com/200" alt="Memory 2">
+            </div>
+            <div class="memory-item">
+                <video controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="memory-item">
+                <img src="https://via.placeholder.com/200" alt="Memory 3">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

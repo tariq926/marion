@@ -18,6 +18,8 @@
             justify-content: center;
             align-items: flex-start; /* Align content to the top */
             overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative; /* For positioning the button */
+            padding-bottom: 80px; /* Space for the button at the bottom */
         }
 
         .message-container {
@@ -37,6 +39,7 @@
             position: relative;
             white-space: pre-wrap; /* Preserve line breaks and spaces */
             color: #333; /* Darker text for better readability */
+            overflow: hidden; /* Hide overflow for smooth animation */
         }
 
         .message::after {
@@ -68,63 +71,26 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Balloon Animation */
-        .balloon {
-            position: absolute;
-            bottom: -100px;
-            width: 50px;
-            height: 70px;
-            background: #ff6f61;
-            border-radius: 50%;
-            animation: float-balloon 6s ease-in infinite;
-        }
-
-        .balloon::before {
-            content: '';
-            position: absolute;
-            bottom: -10px;
+        /* Button to Memories Page */
+        .memories-button {
+            position: fixed; /* Fixed position at the bottom */
+            bottom: 20px;
             left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 50px;
-            background: #333;
+            transform: translateX(-50%); /* Center the button */
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-family: 'Pacifico', cursive;
+            color: #fff;
+            background: #ff6f61; /* Fun color */
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 1000; /* Ensure it's above other content */
         }
 
-        @keyframes float-balloon {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-100vh) rotate(360deg); }
-            100% { transform: translateY(0) rotate(720deg); }
-        }
-
-        /* Rose Animation */
-        .rose {
-            position: absolute;
-            bottom: -100px;
-            width: 40px;
-            height: 40px;
-            background: url('https://www.transparentpng.com/thumb/rose/flower-rose-png-3.png') no-repeat center/contain; /* Rose image */
-            animation: float-rose 8s ease-in infinite;
-        }
-
-        @keyframes float-rose {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-100vh) rotate(360deg); }
-            100% { transform: translateY(0) rotate(720deg); }
-        }
-
-        /* Confetti Effect */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ff6f61;
-            border-radius: 50%;
-            animation: confetti-fall 5s linear infinite;
-        }
-
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100vh) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
+        .memories-button:hover {
+            background: #ff4a3d; /* Darker shade on hover */
         }
 
         /* Responsive Design */
@@ -136,65 +102,50 @@
             .message {
                 font-size: 1.2rem; /* Smaller text for mobile */
             }
+
+            .memories-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
         }
     </style>
     <!-- Google Fonts for Festive Font -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Balloons -->
-    <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="balloon" style="left: 30%; animation-delay: 2s;"></div>
-    <div class="balloon" style="left: 50%; animation-delay: 4s;"></div>
-    <div class="balloon" style="left: 70%; animation-delay: 6s;"></div>
-    <div class="balloon" style="left: 90%; animation-delay: 8s;"></div>
-
-    <!-- Roses -->
-    <div class="rose" style="left: 5%; animation-delay: 1s;"></div>
-    <div class="rose" style="left: 20%; animation-delay: 3s;"></div>
-    <div class="rose" style="left: 40%; animation-delay: 5s;"></div>
-    <div class="rose" style="left: 60%; animation-delay: 7s;"></div>
-    <div class="rose" style="left: 80%; animation-delay: 9s;"></div>
-
-    <!-- Confetti -->
-    <div class="confetti" style="left: 5%; animation-delay: 1s;"></div>
-    <div class="confetti" style="left: 15%; animation-delay: 3s;"></div>
-    <div class="confetti" style="left: 25%; animation-delay: 5s;"></div>
-    <div class="confetti" style="left: 35%; animation-delay: 7s;"></div>
-    <div class="confetti" style="left: 45%; animation-delay: 9s;"></div>
-
     <div class="message-container">
         <div class="birthday-text">Happy Birthday! 🎉🎂🎈</div>
         <div class="message" id="message"></div>
     </div>
 
+    <!-- Button to Memories Page -->
+    <a href="memories.html" class="memories-button">View Our Memories 🌹</a>
+
     <script>
-        // Lyrics of "Spacebound" by Eminem
-        const lyrics = `HAPPY BIRTHDAY!
+        // Personalized Birthday Message
+        const message = `HAPPY BIRTHDAY!
 Happy Birthday to the most amazing friend anyone could ever ask for! 🎉🎂🎈
 
 From the days of our primary school adventures to the countless memories we've created together, you have been a constant source of joy, laughter, and support in my life. Your kindness, intelligence, and beauty, both inside and out, never cease to amaze me.
 
-We've shared so many incredible moments, from primary school to highschool and , late-night conversations. Each memory with you is a treasure that I hold close to my heart. You have been my rock, my confidant, and my partner in crime through it all.
+We've shared so many incredible moments, from primary school to highschool and, late-night conversations. Each memory with you is a treasure that I hold close to my heart. You have been my rock, my confidant, and my partner in crime through it all.
 
 I am so grateful to have you in my life, and I want you to know that I love you dearly. You are not just a friend; you are my family, and I am keeping you forever. Your presence makes the world a brighter and better place, and I am so proud of the person you have become.
 
 As we celebrate your special day, I want to remind you that you will forever be my best friend. No matter where life takes us, our bond will remain unbreakable. Here's to many more years of laughter, adventures, and unforgettable memories together.
 
-Happy Birthday, Marion as you turn a year old... May your day be filled with love, joy, and all the wonderful things you deserve.
-
-`;
+Happy Birthday, Marion, as you turn a year older... May your day be filled with love, joy, and all the wonderful things you deserve.`;
 
         const messageElement = document.getElementById('message');
         let index = 0;
 
         function typeWriter() {
-            if (index < lyrics.length) {
-                messageElement.textContent += lyrics.charAt(index);
+            if (index < message.length) {
+                messageElement.textContent += message.charAt(index);
                 index++;
 
-                // Auto-scroll to the bottom of the page
-                window.scrollTo(0, document.body.scrollHeight);
+                // Smooth scrolling to the bottom
+                messageElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
 
                 setTimeout(typeWriter, 50); // Adjust speed here (50ms per character)
             } else {
