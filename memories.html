@@ -43,7 +43,14 @@
             gap: 20px;
         }
 
-        .memory-item img, .memory-item video {
+        .memory-item {
+            opacity: 0; /* Start with hidden images */
+            transform: translateY(20px); /* Slightly move images down */
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .memory-item img,
+        .memory-item video {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -64,21 +71,51 @@
         <h2>Our Memories 🌹</h2>
         <div class="memory-grid">
             <div class="memory-item">
-<!--<img src="https://via.placeholder.com/200" alt="Memory 1">-->
+                <img src="https://via.placeholder.com/200" alt="Memory 1">
             </div>
             <div class="memory-item">
-<!--<img src="https://via.placeholder.com/200" alt="Memory 2">-->
+                <img src="https://via.placeholder.com/200" alt="Memory 2">
             </div>
             <div class="memory-item">
-                <video controls>
-                    <!--<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">-->
+                <!--<video controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                     Your browser does not support the video tag.
-                </video>
+                </video>-->
             </div>
             <div class="memory-item">
-        <!-- <img src="https://via.placeholder.com/200" alt="Memory 3"> remove when correct items are placed-->
+                <img src="https://via.placeholder.com/200" alt="Memory 3">
             </div>
         </div>
     </div>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop autoplay>
+        <source src="ed_sheeran_photograph_lyrics_mp3_70117.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Function to make images pop up one after the other
+        function showMemories() {
+            const memoryItems = document.querySelectorAll('.memory-item');
+            let delay = 0;
+            memoryItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = 1;
+                    item.style.transform = 'translateY(0)';
+                }, delay);
+                delay += 500; // Adjust the delay between images (in milliseconds)
+            });
+        }
+
+        // Start the animation when the page loads
+        window.onload = showMemories;
+
+        // Play background music
+        const backgroundMusic = document.getElementById('background-music');
+        backgroundMusic.play().catch(error => {
+            console.log("Autoplay was blocked. Please interact with the page to play music.");
+        });
+    </script>
 </body>
 </html>
