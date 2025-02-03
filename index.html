@@ -118,9 +118,22 @@
     </div>
 
     <!-- Button to Memories Page -->
-    <button class="memories-button" onclick="redirectToMemories()">View Our Memories 🌹</button>
+    <button class="memories-button" onclick="redirectToMemories()">Our Memories 🌹</button>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop autoplay>
+        <source src="sza_broken_clocks_audio_mp3_74721.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
+
+        // Play background music
+        const backgroundMusic = document.getElementById('background-music');
+        backgroundMusic.play().catch(error => {
+            console.log("Autoplay was blocked. Please interact with the page to play music.");
+        });
+
         // Personalized Birthday Message
         const message = `HAPPY BIRTHDAY!
 Happy Birthday to the most amazing friend anyone could ever ask for! 🎉🎂🎈
@@ -153,7 +166,7 @@ Happy Birthday, Marion, as you turn a year older... May your day be filled with 
             }
         }
 
-        
+
         // Start the typewriter effect after a short delay
         setTimeout(() => {
             typeWriter();
